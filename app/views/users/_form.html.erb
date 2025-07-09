@@ -12,23 +12,18 @@
   <% end %>
 
   <div>
-    <%= form.label :ユーザー, style: "display: block" %>
+    <%= form.label :name, style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :メールアドレス, style: "display: block" %>
+    <%= form.label :email, style: "display: block" %>
     <%= form.text_field :email %>
   </div>
 
   <div>
-    <%= form.label :パスワード, style: "display: block" %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div>
-    <%= form.label :パスワード確認, style: "display: block" %>
-    <%= form.password_field :password %>
+    <%= form.label :password_digest, style: "display: block" %>
+    <%= form.text_field :password_digest %>
   </div>
 
   <div>

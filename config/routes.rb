@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   resources :choices
   resources :polls
   resources :votes
-  resources :choices
-  resources :polls
   resources :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

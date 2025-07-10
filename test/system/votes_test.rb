@@ -14,9 +14,8 @@ class VotesTest < ApplicationSystemTestCase
     visit votes_url
     click_on "New vote"
 
-    fill_in "Email", with: @vote.email_id
-    fill_in "Option text", with: @vote.option_text
-    fill_in "Title", with: @vote.title
+    fill_in "Choice", with: @vote.choice_id
+    fill_in "Poll", with: @vote.poll_id
     fill_in "User", with: @vote.user_id
     click_on "Create Vote"
 
@@ -28,9 +27,8 @@ class VotesTest < ApplicationSystemTestCase
     visit vote_url(@vote)
     click_on "Edit this vote", match: :first
 
-    fill_in "Email", with: @vote.email_id
-    fill_in "Option text", with: @vote.option_text
-    fill_in "Title", with: @vote.title
+    fill_in "Choice", with: @vote.choice_id
+    fill_in "Poll", with: @vote.poll_id
     fill_in "User", with: @vote.user_id
     click_on "Update Vote"
 

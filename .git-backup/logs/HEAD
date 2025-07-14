@@ -1,0 +1,22 @@
+0000000000000000000000000000000000000000 32f1e010b78c06b8bda9a453566002d6586833de miyamoto <r6_miyamoto@icc.core.ac.jp> 1752124063 +0900	clone: from https://github.com/kakumato/kaihatu2.git
+32f1e010b78c06b8bda9a453566002d6586833de 1c364afd86c4bf6678ab56ce664edee6888e8be1 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752125951 +0900	commit: リレーションシップ
+1c364afd86c4bf6678ab56ce664edee6888e8be1 a2f0330bd15a761e41024ba1eca72be5541bffe0 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752130317 +0900	commit: test
+a2f0330bd15a761e41024ba1eca72be5541bffe0 a2f0330bd15a761e41024ba1eca72be5541bffe0 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752130327 +0900	checkout: moving from main to sub
+a2f0330bd15a761e41024ba1eca72be5541bffe0 a2f0330bd15a761e41024ba1eca72be5541bffe0 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752130335 +0900	checkout: moving from sub to main
+a2f0330bd15a761e41024ba1eca72be5541bffe0 a2f0330bd15a761e41024ba1eca72be5541bffe0 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752130487 +0900	checkout: moving from main to main
+a2f0330bd15a761e41024ba1eca72be5541bffe0 ee5a5d434883447e607d2c60b5237821c8d55127 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752130512 +0900	reset: moving to origin/main
+ee5a5d434883447e607d2c60b5237821c8d55127 8812b148f2e8dc70814d04ee816b9b5db91ec7b6 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752454501 +0900	commit (merge): Merge branch 'main' of https://github.com/kakumato/kaihatu2
+8812b148f2e8dc70814d04ee816b9b5db91ec7b6 0f25ad3f328964358983e9d47f77a48b316073e6 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752460100 +0900	commit: ログインしていない場合ログイン画面に遷移するように変更
+0f25ad3f328964358983e9d47f77a48b316073e6 e802b420b8261951d43a9594943ca32901067a44 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752460398 +0900	pull sub main: Merge made by the 'ort' strategy.
+e802b420b8261951d43a9594943ca32901067a44 620be757b89f592d7a996da5e8ec78bd9048ed7c miyamoto <r6_miyamoto@icc.core.ac.jp> 1752460784 +0900	commit: ログインしていなければログイン画面に遷移する
+620be757b89f592d7a996da5e8ec78bd9048ed7c a2f0330bd15a761e41024ba1eca72be5541bffe0 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752461724 +0900	checkout: moving from main to sub
+a2f0330bd15a761e41024ba1eca72be5541bffe0 620be757b89f592d7a996da5e8ec78bd9048ed7c miyamoto <r6_miyamoto@icc.core.ac.jp> 1752461781 +0900	checkout: moving from sub to main
+620be757b89f592d7a996da5e8ec78bd9048ed7c 620be757b89f592d7a996da5e8ec78bd9048ed7c miyamoto <r6_miyamoto@icc.core.ac.jp> 1752461795 +0900	checkout: moving from main to sub
+620be757b89f592d7a996da5e8ec78bd9048ed7c 4ced8cf21997980b9b972b6cacc6702179a4b074 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752461926 +0900	pull origin sub --rebase (start): checkout 4ced8cf21997980b9b972b6cacc6702179a4b074
+4ced8cf21997980b9b972b6cacc6702179a4b074 46d3c86bd59c92ebe6cd440e82e5749d18e41545 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752461926 +0900	pull origin sub --rebase (pick): from作成とログイン画面制作
+46d3c86bd59c92ebe6cd440e82e5749d18e41545 fd420a4efc7d9288d317c2f8d6f8fe64c24ecd71 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752462049 +0900	rebase (pick): ログインしていない場合ログイン画面に遷移するように変更
+fd420a4efc7d9288d317c2f8d6f8fe64c24ecd71 aee9bdc708dd292b8f497e030ba00310c4aab453 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752462049 +0900	rebase (pick): show変更画面整える前
+aee9bdc708dd292b8f497e030ba00310c4aab453 e0e0591622fb71a2fe84ff0bb326bb2d377d6c41 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752462049 +0900	rebase (pick): ログインしていなければログイン画面に遷移する
+e0e0591622fb71a2fe84ff0bb326bb2d377d6c41 e0e0591622fb71a2fe84ff0bb326bb2d377d6c41 miyamoto <r6_miyamoto@icc.core.ac.jp> 1752462049 +0900	rebase (finish): returning to refs/heads/sub
+e0e0591622fb71a2fe84ff0bb326bb2d377d6c41 620be757b89f592d7a996da5e8ec78bd9048ed7c miyamoto <r6_miyamoto@icc.core.ac.jp> 1752462056 +0900	checkout: moving from sub to main
+620be757b89f592d7a996da5e8ec78bd9048ed7c 152fc926a26db4dd7668fd1ca1eea53ac2c8d32f miyamoto <r6_miyamoto@icc.core.ac.jp> 1752466929 +0900	commit: ユーザ登録をできるようにする

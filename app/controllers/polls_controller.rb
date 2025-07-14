@@ -1,4 +1,5 @@
 class PollsController < ApplicationController
+  before_action :require_login
   before_action :set_poll, only: %i[ show edit update destroy ]
 
   # GET /polls or /polls.json

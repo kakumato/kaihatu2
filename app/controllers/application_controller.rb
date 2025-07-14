@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-<<<<<<< HEAD
-=======
+
     include SessionsHelper
     before_action :require_login
     helper_method :current_user, :logged_in?
@@ -11,5 +10,5 @@ class ApplicationController < ActionController::Base
             redirect_to login_path, alert: "ログインしてください"
         end
     end
->>>>>>> main
+
 end

@@ -15,6 +15,11 @@ class VotesController < ApplicationController
     @vote.user_id = session[:user_id]
     @vote.poll_id = @poll.id  # poll_id をセット（セキュリティ的にも明示する）
 
+    if Vote.exists?(user_id: @vote.user_id, poll_id: @vote.poll_id)
+      redirect_to polls_path, alert: "すでにこの投票に参加しています"
+      return
+    end
+
     if @vote.save
       redirect_to polls_path, notice: "投票が完了しました"
     else

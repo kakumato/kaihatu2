@@ -12,21 +12,52 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+    <p>
+      <%= form.label :title, "タイトル", style: "display: block" %>
+      <%= form.text_field :title, size: 30 %>
+    </p>
+
+    <p>
+      <%= form.label :description, "説明文", style: "display: block" %>
+      <%= form.text_field :description, size: 30 %>
+    </p>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div id="choices_container">
+    <% num = 1 %>
+    <%= form.fields_for :choices do |choice| %>
+      <p>
+        <%= choice.label "選択肢#{num}" %><br>
+        <%= choice.text_field :option_text %>
+      </p>
+      <% num += 1 %>
+    <% end %>
   </div>
+  <button type="button" id="add_choice_button">選択肢追加</button>
 
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
+  <p>
     <%= form.submit %>
-  </div>
+  </p>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("choices_container");
+      const addButton = document.getElementById("add_choice_button");
+
+      addButton.addEventListener("click", () => {
+        const currentCount = container.querySelectorAll("p").length;
+        const nextNum = currentCount + 1;
+
+        const newChoiceHTML = `
+          <p>
+            <label for="poll_choices_attributes_${currentCount}_option_text">選択肢${nextNum}</label><br>
+            <input type="text" name="poll[choices_attributes][${currentCount}][option_text]" id="poll_choices_attributes_${currentCount}_option_text" />
+          </p>
+        `;
+
+        container.insertAdjacentHTML('beforeend', newChoiceHTML);
+      });
+    });
+  </script>
+  
 <% end %>

@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+1788f9fe05a208c3e15dc84d1ffdc4484957a215 refs/remotes/origin/a
+32f1e010b78c06b8bda9a453566002d6586833de refs/remotes/origin/main
+4ced8cf21997980b9b972b6cacc6702179a4b074 refs/remotes/origin/sub
+3712903a310d93efd49d35009b164e3c57085fc9 refs/remotes/origin/バージョン
+3712903a310d93efd49d35009b164e3c57085fc9 refs/remotes/origin/更新

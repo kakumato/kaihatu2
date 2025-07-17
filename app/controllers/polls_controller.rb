@@ -13,6 +13,7 @@ class PollsController < ApplicationController
   # GET /polls/new
   def new
     @poll = Poll.new
+    2.times {@poll.choices.build}
   end
 
   # GET /polls/1/edit
@@ -22,10 +23,11 @@ class PollsController < ApplicationController
   # POST /polls or /polls.json
   def create
     @poll = Poll.new(poll_params)
+    @poll.user_id = session[:user_id]
 
     respond_to do |format|
       if @poll.save
-        format.html { redirect_to @poll, notice: "Poll was successfully created." }
+        format.html { redirect_to @poll, notice: "アンケートを作成しました" }
         format.json { render :show, status: :created, location: @poll }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -65,6 +67,6 @@ class PollsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def poll_params
-      params.require(:poll).permit(:title, :description, :user_id)
+      params.require(:poll).permit(:title, :description, choices_attributes: [:id, :option_text, :_destroy])
     end
 end

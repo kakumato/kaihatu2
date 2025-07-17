@@ -3,7 +3,7 @@ class PollsController < ApplicationController
 
   # GET /polls or /polls.json
   def index
-    @polls = Poll.all
+     @polls = Poll.includes(:choices, :votes)
   end
 
   # GET /polls/1 or /polls/1.json

@@ -26,9 +26,10 @@
   <div id="choices_container">
     <% num = 1 %>
     <%= form.fields_for :choices do |choice| %>
+      <% input_id = "poll_choices_attributes_#{num}_option_text" %>
       <p class="choice-item">
-        <%= choice.label "選択肢#{num}" %><br>
-        <%= choice.text_field :option_text %>
+        <%= choice.label :option_text, "選択肢#{num + 1}", for: input_id %><br>
+        <%= choice.text_field :option_text, id: input_id, name: "poll[choices_attributes][#{num}][option_text]" %>
       </p>
       <% num += 1 %>
     <% end %>
@@ -38,8 +39,6 @@
   <p>
     <%= form.submit %>
   </p>
-
-  <%= javascript_importmap_tags %>
 
   <script type="module">
     import "add_choice";

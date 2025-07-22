@@ -1,28 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbo:load", () => {
   const container = document.getElementById("choices_container");
   const addButton = document.getElementById("add_choice_button");
   if (!container || !addButton) return;
 
-  // インデックスを詰める関数
-  const reindexChoices = () => {
+  // インデックス更新関数
+  function reindexChoices() {
     const choiceItems = container.querySelectorAll("p.choice-item");
     choiceItems.forEach((p, i) => {
-      // ラベルのテキストを更新
       const label = p.querySelector("label");
-      label.textContent = `選択肢${i + 1}`;
-
-      // inputのnameとidを連番で更新
       const input = p.querySelector("input[type=text]");
-      const newIndex = i;
-      input.name = `poll[choices_attributes][${newIndex}][option_text]`;
-      input.id = `poll_choices_attributes_${newIndex}_option_text`;
-
-      // ラベルのfor属性も更新
-      label.setAttribute("for", input.id);
+      label.textContent = `選択肢${i + 1}`;
+      const newId = `poll_choices_attributes_${i}_option_text`;
+      input.name = `poll[choices_attributes][${i}][option_text]`;
+      input.id = newId;
+      label.setAttribute("for", newId);
     });
-  };
+  }
 
-  // 追加ボタンの動作
   addButton.addEventListener("click", () => {
     const currentCount = container.querySelectorAll("p.choice-item").length;
     const nextNum = currentCount + 1;
@@ -34,21 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
         <button type="button" class="remove-choice-button">削除</button>
       </p>
     `;
-
     container.insertAdjacentHTML('beforeend', newChoiceHTML);
+    reindexChoices();
   });
 
-  // 削除ボタンの動作
   container.addEventListener("click", (event) => {
     if (event.target.classList.contains("remove-choice-button")) {
       const p = event.target.closest("p.choice-item");
       if (p) {
         p.remove();
-        reindexChoices(); // 削除後に再インデックス
+        reindexChoices();
       }
     }
   });
 
-  // ページロード時にもインデックスを正す（既にある選択肢に対して）
+  // ページ読み込み時に既存の選択肢のインデックスを正す
   reindexChoices();
 });

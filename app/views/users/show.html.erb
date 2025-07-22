@@ -1,9 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>投票（タイトル）</h1>
+<h1>マイページ</h1>
 <%= @user.name %>
 
 <div>
+  <%= link_to "アンケート一覧", "/polls" %>
+</div>
 
+<div>
   <%= button_to "Destroy this user", @user, method: :delete %>
 </div>

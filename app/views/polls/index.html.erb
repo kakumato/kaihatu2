@@ -16,11 +16,11 @@
         <td><%= poll.title %></td>
         <td><%= poll.description %></td>
         <td><%= poll.votes.count %> 票</td>
-        <td><%= link_to '投票する', "#" %></td>
-        <td><%= link_to '投票結果', "#" %></td>
+        <td><%= link_to '投票する', new_poll_vote_path(poll) %></td>
+        <td><%= link_to '投票結果', poll_path(poll) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to "New poll", new_poll_path %>
+<%= link_to "アンケート新規作成", new_poll_path %>

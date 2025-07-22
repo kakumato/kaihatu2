@@ -2,9 +2,24 @@
 
 <%= render @poll %>
 
-<div>
-  <%= link_to "Edit this poll", edit_poll_path(@poll) %> |
-  <%= link_to "Back to polls", polls_path %>
+<h2><%= @poll.title %>の投票結果 </h2>
 
-  <%= button_to "Destroy this poll", @poll, method: :delete %>
+<div class="chart-container">
+  <canvas id="votePieChart"
+          data-labels='<%= raw @vote_counts.keys.map {|key| key[1]}.to_json %>'
+          data-data='<%= raw @vote_counts.values.to_json %>'>
+  </canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<%= javascript_importmap_tags %>
+
+<script type="module">
+  import "chart_render";
+</script>
+
+
+<div>
+  <%= link_to "アンケート一覧に戻る", polls_path %>
 </div>

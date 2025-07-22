@@ -8,6 +8,12 @@ class PollsController < ApplicationController
 
   # GET /polls/1 or /polls/1.json
   def show
+    @poll = Poll.find(params[:id])
+
+    @vote_counts = @poll.choices
+                        .left_joins(:votes)
+                        .group(:id, :option_text)
+                        .count('votes.id')
   end
 
   # GET /polls/new

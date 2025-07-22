@@ -11,6 +11,18 @@
   </head>
 
   <body>
-      <%= yield %>
+    <% if flash[:notice] %>
+      <div style="color: green; border: 1px solid green; padding: 5px; margin-bottom: 10px;">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div style="color: red; border: 1px solid red; padding: 5px; margin-bottom: 10px;">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+    
+    <%= yield %>
   </body>
 </html>

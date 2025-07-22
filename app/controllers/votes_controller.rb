@@ -1,70 +1,39 @@
 class VotesController < ApplicationController
-  before_action :set_vote, only: %i[ show edit update destroy ]
+  before_action :set_poll
 
-  # GET /votes or /votes.json
   def index
-    @votes = Vote.all
+    @poll = Poll.find(params[:poll_id])
+    @votes = @poll.votes
   end
 
-  # GET /votes/1 or /votes/1.json
-  def show
-  end
-
-  # GET /votes/new
   def new
     @vote = Vote.new
   end
 
-  # GET /votes/1/edit
-  def edit
-  end
-
-  # POST /votes or /votes.json
   def create
     @vote = Vote.new(vote_params)
+    @vote.user_id = session[:user_id]
+    @vote.poll_id = @poll.id  # poll_id をセット（セキュリティ的にも明示する）
 
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to @vote, notice: "Vote was successfully created." }
-        format.json { render :show, status: :created, location: @vote }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
-      end
+    if Vote.exists?(user_id: @vote.user_id, poll_id: @vote.poll_id)
+      redirect_to polls_path, alert: "すでにこの投票に参加しています"
+      return
     end
-  end
 
-  # PATCH/PUT /votes/1 or /votes/1.json
-  def update
-    respond_to do |format|
-      if @vote.update(vote_params)
-        format.html { redirect_to @vote, notice: "Vote was successfully updated." }
-        format.json { render :show, status: :ok, location: @vote }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /votes/1 or /votes/1.json
-  def destroy
-    @vote.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to votes_path, status: :see_other, notice: "Vote was successfully destroyed." }
-      format.json { head :no_content }
+    if @vote.save
+      redirect_to polls_path, notice: "投票が完了しました"
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_vote
-      @vote = Vote.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def vote_params
-      params.require(:vote).permit(:user_id, :poll_id, :choice_id)
-    end
+  def set_poll
+    @poll = Poll.includes(:choices).find(params[:poll_id])
+  end
+
+  def vote_params
+    params.require(:vote).permit(:choice_id)  # poll_id, user_id はコントローラで代入するのが安全
+  end
 end

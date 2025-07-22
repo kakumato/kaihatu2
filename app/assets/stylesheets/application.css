@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /* 投票結果の円グラフ */
+ .chart-container {
+  position: relative;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 767px) {
+  .chart-container {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* 横幅に合わせた正方形 */
+  }
+}
+
+#votePieChart {
+  width: 100% !important;
+  height: 100% !important;
+}

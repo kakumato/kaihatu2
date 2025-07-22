@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   get 'sessions/new'
   resources :choices
-  resources :polls
-  resources :votes
+  resources :polls  do
+    resources :votes, only: [:index, :new, :create,]
+  end
   resources :users
   get    "/login",   to: "sessions#new"
   post   "/login",   to: "sessions#create"

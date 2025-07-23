@@ -11,29 +11,29 @@
     </div>
   <% end %>
 
-  <div>
+  <div class = "visual">
     <%= form.label :name,"ユーザー名", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
-  <div>
+  <div class = "visual">
     <%= form.label :email,"メールアドレス", style: "display: block" %>
     <%= form.text_field :email %>
   </div>
 
-  <div>
+  <div class = "visual">
     <%= form.label :password,"パスワード", style: "display: block" %>
     <%= form.password_field :password %>
   </div>
 
-    <div>
+  <div class = "visual">
     <%= form.label :password_confirmation,"パスワード確認", style: "display: block" %>
     <%= form.password_field :password_confirmation %>
    </div>
 
 
 
-  <div>
+  <div class = "visual">
     <%= form.submit "登録決定" %>
   </div>
 <% end %>

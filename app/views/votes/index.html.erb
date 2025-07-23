@@ -4,11 +4,10 @@
 
 <div id="votes">
   <% @votes.each do |vote| %>
-    <%= render vote %>
     <p>
-      <%= link_to "Show this vote", vote %>
+      <%= link_to "Show this vote", poll_vote_path(vote.poll, vote) %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New vote", new_vote_path %>
+<%= link_to "New vote", new_poll_vote_path(@poll) %>

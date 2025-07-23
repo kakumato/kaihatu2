@@ -1,9 +1,12 @@
-<h1>New vote</h1>
+<h1><%= @poll.title %></h1>
+<p><%= @poll.description %></p>
 
-<%= render "form", vote: @vote %>
+<%= form_with model: @vote, url: poll_votes_path(@poll), local: true do |f| %>
+  <div>
+    <%= f.label :choice_id, "選択肢を選んでください" %><br>
+    <%= f.collection_select :choice_id, @poll.choices, :id, :option_text, prompt: "選択してください" %>
+  </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to votes", votes_path %>
-</div>
+  <%= f.hidden_field :poll_id, value: @poll.id %>
+  <%= f.submit "投票する" %>
+<% end %>

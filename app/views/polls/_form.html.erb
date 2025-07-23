@@ -24,11 +24,12 @@
   </div>
 
   <div id="choices_container">
-    <% num = 1 %>
+    <% num = 0 %>
     <%= form.fields_for :choices do |choice| %>
-      <p>
-        <%= choice.label "選択肢#{num}" %><br>
-        <%= choice.text_field :option_text %>
+      <% input_id = "poll_choices_attributes_#{num}_option_text" %>
+      <p class="choice-item">
+        <%= choice.label :option_text, "選択肢#{num + 1}", for: input_id %><br>
+        <%= choice.text_field :option_text, id: input_id, name: "poll[choices_attributes][#{num}][option_text]" %>
       </p>
       <% num += 1 %>
     <% end %>
@@ -39,25 +40,8 @@
     <%= form.submit %>
   </p>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const container = document.getElementById("choices_container");
-      const addButton = document.getElementById("add_choice_button");
-
-      addButton.addEventListener("click", () => {
-        const currentCount = container.querySelectorAll("p").length;
-        const nextNum = currentCount + 1;
-
-        const newChoiceHTML = `
-          <p>
-            <label for="poll_choices_attributes_${currentCount}_option_text">選択肢${nextNum}</label><br>
-            <input type="text" name="poll[choices_attributes][${currentCount}][option_text]" id="poll_choices_attributes_${currentCount}_option_text" />
-          </p>
-        `;
-
-        container.insertAdjacentHTML('beforeend', newChoiceHTML);
-      });
-    });
+  <script type="module">
+    import "add_choice";
   </script>
-  
+
 <% end %>

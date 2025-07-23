@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<h1>投票一覧</h1>
 
-<h1>Polls</h1>
+<table>
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>説明</th>
+      <th>投票数</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
 
-<div id="polls">
-  <% @polls.each do |poll| %>
-    <%= render poll %>
-    <p>
-      <%= link_to "Show this poll", poll %>
-    </p>
-  <% end %>
-</div>
+  <tbody>
+    <% @polls.each do |poll| %>
+      <tr>
+        <td><%= poll.title %></td>
+        <td><%= poll.description %></td>
+        <td><%= poll.votes.count %> 票</td>
+        <td><%= link_to '投票する', new_poll_vote_path(poll) %></td>
+        <td><%= link_to '投票結果', poll_path(poll) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to "New poll", new_poll_path %>
+<%= link_to "アンケート新規作成", new_poll_path %>

@@ -1,12 +1,18 @@
-<h1><%= @poll.title %></h1>
-<p><%= @poll.description %></p>
+<div class="visual">
+  <h1><%= @poll.title %></h1>
+  <p>
+    <div id="vote-comment">
+      <%= @poll.description %>
+    </div>
+  </p>
 
-<%= form_with model: @vote, url: poll_votes_path(@poll), local: true do |f| %>
-  <div>
-    <%= f.label :choice_id, "選択肢を選んでください" %><br>
-    <%= f.collection_select :choice_id, @poll.choices, :id, :option_text, prompt: "選択してください" %>
-  </div>
+  <%= form_with model: @vote, url: poll_votes_path(@poll), local: true do |f| %>
+    <div>
+      <%= f.label :choice_id, "選択肢" %><br>
+      <%= f.collection_select :choice_id, @poll.choices, :id, :option_text, prompt: "選択してください" %>
+    </div>
 
-  <%= f.hidden_field :poll_id, value: @poll.id %>
-  <%= f.submit "投票する" %>
-<% end %>
+    <%= f.hidden_field :poll_id, value: @poll.id %>
+    <p><%= f.submit "投票する" %></p>
+  <% end %>
+</div>

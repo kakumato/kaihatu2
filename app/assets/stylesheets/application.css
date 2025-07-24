@@ -4,6 +4,10 @@
     margin: 0 auto;
     padding: 10px;
 }
+
+#vote-comment{
+  font-size: 22px;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

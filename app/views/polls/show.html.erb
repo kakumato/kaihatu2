@@ -1,26 +1,27 @@
-<p style="color: green"><%= notice %></p>
+<div class="visual">
+  <h1><%= @poll.title %>の投票結果 </h1>
 
-<%= render @poll %>
+  <%= render @poll %>
 
-<h2><%= @poll.title %>の投票結果 </h2>
+  <div class="chart-container">
+    <canvas id="votePieChart"
+            data-labels='<%= raw @vote_counts.keys.map {|key| key[1]}.to_json %>'
+            data-data='<%= raw @vote_counts.values.to_json %>'>
+    </canvas>
+  </div>
 
-<div class="chart-container">
-  <canvas id="votePieChart"
-          data-labels='<%= raw @vote_counts.keys.map {|key| key[1]}.to_json %>'
-          data-data='<%= raw @vote_counts.values.to_json %>'>
-  </canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <%= javascript_importmap_tags %>
+
+  <script type="module">
+    import "chart_render";
+  </script>
+
+
+  <div>
+    <%= link_to "アンケート一覧に戻る", polls_path %>
+  </div>
+  <p>結果が表示されない場合は再読み込みをしてください。</p>
+
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-<%= javascript_importmap_tags %>
-
-<script type="module">
-  import "chart_render";
-</script>
-
-
-<div>
-  <%= link_to "アンケート一覧に戻る", polls_path %>
-</div>
-<p>結果が表示されない場合は再読み込みをしてください。</p>

@@ -1,17 +1,13 @@
 <div id="<%= dom_id poll %>">
-  <p>
-    <strong>Title:</strong>
-    <%= poll.title %>
-  </p>
 
   <p>
-    <strong>Description:</strong>
+    <strong>コメント:</strong>
     <%= poll.description %>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= poll.user_id %>
+    <strong>作成者:</strong>
+    <%= poll.user.name %>
   </p>
 
 </div>
